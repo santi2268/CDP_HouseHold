@@ -7,15 +7,12 @@ import org.hibernate.validator.constraints.NotEmpty;
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.util.Set;
-
 @org.hibernate.annotations.NamedQueries({
         @org.hibernate.annotations.NamedQuery(name = "Field_All",
                 query = "from Field"),
 })
-
 @Entity
 public class Field {
-
     @Id
     @NaturalId //Primárny klúč nie je generovaný, ale je tvorený názvom premennej
     @NotEmpty

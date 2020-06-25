@@ -9,7 +9,6 @@ import io.swagger.annotations.ApiModelProperty;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-
 @org.hibernate.annotations.NamedQueries({
         @org.hibernate.annotations.NamedQuery(name = "AbstractData_findData",
                 query = "from AbstractData where household_id = :hhId AND " +
@@ -23,6 +22,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+
 @JsonTypeInfo(
         use = JsonTypeInfo.Id.NAME,
         include = JsonTypeInfo.As.PROPERTY,
@@ -36,12 +36,12 @@ import java.time.LocalDateTime;
 @ApiModel(value = "Data", discriminator = "type", subTypes = {DataDouble.class
         , DataInteger.class,
         DataString.class})
-
 public abstract class AbstractData<T extends Object> {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @ApiModelProperty(accessMode = ApiModelProperty.AccessMode.READ_ONLY)
     private Long id;
+
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "field_id", nullable = false)
@@ -105,6 +105,7 @@ public abstract class AbstractData<T extends Object> {
 
         return id != null ? id.equals(that.id) : that.id == null;
     }
+
 
     @Override
     public int hashCode() {
