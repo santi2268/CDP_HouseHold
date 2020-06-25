@@ -27,7 +27,7 @@ public class ContactPerson {
     private String lastName;
 
     @NotNull
-    @Pattern(regexp = "^(\d{4}[ ]\d{3}[ ]\d{3}|\d{10})$")
+    @Pattern(regexp = "^(\\d{4}[ ]\\d{3}[ ]\\d{3}|\\d{10})$")
     //napr. 0905 123 456 alebo 0905123456
     @ApiModelProperty(example = "0907 123 456") // Príklad pre swagger
     // dokumentáciu

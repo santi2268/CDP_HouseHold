@@ -22,7 +22,6 @@ import java.util.Set;
                 query = "from HouseHold"),
 
 })
-
 @Entity
 public class HouseHold {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -40,7 +39,7 @@ public class HouseHold {
     @ApiModelProperty(example = "Slovakia") // Príklad pre swagger doku.
     private String state;
     @NotEmpty
-    @Pattern(regexp = "^\d*$")
+    @Pattern(regexp = "^\\d*$")
     @ApiModelProperty(example = "01008") // Príklad pre swagger doku.
     private String zip;
     @Valid
@@ -52,6 +51,7 @@ public class HouseHold {
     // objektu JSON. Generoval by sa obrovský JSON a dochádzalo by aj k
     // zacykleniu
     private Set<AbstractData> data;
+
     @Transient
     @JsonIgnore // Ignorovanie danej premenej z pohladu Serializacie do
     // Objektu JSON.Gneroval by sa obrovský JSON a dochádzalo by aj k zacykleniu
